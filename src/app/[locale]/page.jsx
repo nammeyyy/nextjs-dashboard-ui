@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Container from "../components/Container";
-import Navbar from "../components/Navbar";
+import Container from "./components/Container";
+import Navbar from "./components/Navbar";
 import Logo from '../../../public/next.svg';
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 import { useSession } from 'next-auth/react';
 
 export default function Home() {

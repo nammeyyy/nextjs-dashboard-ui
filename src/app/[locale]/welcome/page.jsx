@@ -9,6 +9,7 @@ import Container from '../components/Container'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import DeleteBtn from './DeleteBtn'
+import { useTranslations } from 'next-intl'
 
 function WelcomePage() {
 
@@ -21,6 +22,8 @@ function WelcomePage() {
     const [postData, setPostData] = useState([]);
 
     const userEmail = session?.user?.email;
+
+    const t = useTranslations('WelcomePage');
 
     // useEffect(() => {
     //     const fetchData = async () => {

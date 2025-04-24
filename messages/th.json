@@ -1,7 +1,7 @@
 {
     "WelcomePage": {
         "profile": "โปรไฟล์",
-        "welcomeText": "ยินดีต้อนนรับ {{user?.email}}",
-        "email": "อีเมล: {{session?.user?.email}}"
+        "welcomeText": "ยินดีต้อนรับ,",
+        "email": "อีเมล: "
     }
 }

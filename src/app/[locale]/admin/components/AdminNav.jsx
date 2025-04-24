@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import Logo from '../../../../public/next.svg'
+import Logo from '../../../../../public/next.svg'
 import Image from 'next/image'
 import { signOut } from 'next-auth/react'
 
