@@ -1,7 +1,35 @@
 {
-    "WelcomePage": {
-        "profile": "Profile",
-        "welcomeText": "Welcome, ",
-        "email": "Email: "
-    }
+  "Navbar": {
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "LoginPage": {
+    "login": "Login",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "signInBtn": "Sign In",
+    "haveAcc": "Do not have an account? Go to",
+    "regLink": "Register",
+    "regPage": "Page"
+  },
+  "WelcomePage": {
+    "profile": "Profile",
+    "welcomeText": "Welcome, ",
+    "email": "Email: ",
+    "createPostBtn": "Create Post",
+    "editPostBtn": "Edit"
+  },
+  "CreatePage": {
+    "backBtn": "Go back",
+    "createPost": "Create Post",
+    "postTitle": "Post title",
+    "postImg": "Post Img url",
+    "content": "Enter your post content here",
+    "createPostBtn": "Create Post"
+  },
+  "DeleteBtn": {
+    "delete": "Delete"
+  }
 }

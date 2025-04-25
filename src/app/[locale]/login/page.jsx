@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState ,useEffect} from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Container from "../components/Container";
+import React, { useState, useEffect } from "react";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import Container from "../../../components/Container";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
+import {setRequestLocale} from 'next-intl/server';
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -16,9 +18,12 @@ function LoginPage() {
 
   const router = useRouter();
 
-  const { data: session } = useSession(); // concern this one
+  const { data: session } = useSession();
+  console.log(session); // concern this one
   // if (session) router.push("welcome")
-  
+
+  const t = useTranslations("LoginPage");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -46,7 +51,7 @@ function LoginPage() {
       <div className="flex-grow">
         <div className="flex justify-center items-center">
           <div className="w-[400px] shadow-xl p-10 mt-5 rounded-xl">
-            <h3 className="text-3xl">Login</h3>
+            <h3 className="text-3xl">{t("login")}</h3>
             <hr className="my-3" />
             <form onSubmit={handleSubmit}>
               {error && (
@@ -59,30 +64,30 @@ function LoginPage() {
                 type="text"
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2"
-                placeholder="Enter your email"
+                placeholder={t("email")}
               />
               <input
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2"
-                placeholder="Enter your password"
+                placeholder={t("password")}
               />
               <button
                 className="bg-green-500 text-white border py-2 px-3 rounded text-lg my-2"
                 type="submit"
               >
-                Sign In
+                {t("signInBtn")}
               </button>
               <hr className="my-3" />
               <p>
-                Do not have an account? Go go{" "}
+                {t("haveAcc")}{" "}
                 <Link
                   href="/register"
                   className="text-blue-500 hover:underline"
                 >
-                  Register
+                  {t("regLink")}
                 </Link>{" "}
-                Page
+                {t("regPage")}
               </p>
             </form>
           </div>

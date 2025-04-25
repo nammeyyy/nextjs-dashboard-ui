@@ -1,7 +1,33 @@
 {
-    "WelcomePage": {
-        "profile": "โปรไฟล์",
-        "welcomeText": "ยินดีต้อนรับ,",
-        "email": "อีเมล: "
-    }
+  "Navbar": {
+    "profile": "บัญชีผู้ไช้",
+    "logout": "ออกจากระบบ"
+  },
+  "LoginPage": {
+    "login": "เข้าสู่ระบบ",
+    "email": "กรอกอีเมลของคุณ",
+    "password": "กรอกรหัสผ่านของคุณ",
+    "signInBtn": "ลงชื่อเข้าใช้",
+    "haveAcc": "ยังไม่มีบัญชีใช่ไหม? กรุณาไปที่หน้า",
+    "regLink": "ลงทะเบียน",
+    "regPage": ""
+  },
+  "WelcomePage": {
+    "profile": "โปรไฟล์",
+    "welcomeText": "ยินดีต้อนรับ,",
+    "email": "อีเมล: ",
+    "createPostBtn": "สร้างโพสต์",
+    "editPostBtn": "แก้ไข"
+  },
+  "CreatePage": {
+    "backBtn": "กลับ",
+    "createPost": "สร้างโพสต์ของคุณ",
+    "postTitle": "ชื่อเรื่อง",
+    "postImg": "ลิงก์รูปภาพ",
+    "content": "กรอกเนื้อหาของโพสต์ที่นี",
+    "createPostBtn": "สร้างโพสต์"
+  },
+  "DeleteBtn": {
+    "delete": "ลบ"
+  }
 }

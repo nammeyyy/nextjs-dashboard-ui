@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
+import Navbar from '../../../../components/Navbar'
+import Footer from '../../../../components/Footer'
 import Link from 'next/link'
-import Container from '../../components/Container'
+import Container from '../../../../components/Container'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import { useRouter } from 'next/navigation'

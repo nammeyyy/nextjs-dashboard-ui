@@ -1,9 +1,10 @@
-import { AuthProvider } from "./Providers";
-import { notFound } from 'next/navigation';
-import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+// import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { AuthProvider } from "./Providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
+import { NextIntlClientProvider } from "next-intl";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,21 +22,21 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
+  const { locale } = await params;
+  console.log("locale", locale);
 
-  const { locale } = params;
+  // if (!routing.locales.includes(locale)) {
+  //   notFound();
+  // }
 
-  if (!routing.locales.includes(locale)) {
-    notFound();
-  }
-
-  const messages = await getMessages({ locale });
+  // const messages = await getMessages({ locale }  );
 
   return (
     <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AuthProvider locale={locale} messages={messages}>
-          {children}
-        </AuthProvider>
+      <body>
+        <NextIntlClientProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

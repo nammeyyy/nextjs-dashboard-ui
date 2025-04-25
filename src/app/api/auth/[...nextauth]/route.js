@@ -1,8 +1,8 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { connectMongoDB } from "../../../../../../lib/mongodb";
-import User from "../../../../../../models/user";
+import User from "../../../../../models/user";
 import bcrypt from 'bcryptjs'
+import { connectMongoDB } from "../../../../../lib/mongodb";
 
 const authOptions = {
     providers: [
@@ -39,6 +39,10 @@ const authOptions = {
       ],
       session: {
         strategy: "jwt"
+        // maxAge: 30 * 24 * 60 * 60 // 30 days
+      },
+      jwt: {
+        maxAge: 30 * 24 * 60 * 60 // 30 days
       },
       secret: process.env.NEXTAUTH_SECRET,
       pages: {
@@ -51,6 +55,7 @@ const authOptions = {
                     ...token,
                     id: user.id,
                     role: user.role
+
                 }
             }
 

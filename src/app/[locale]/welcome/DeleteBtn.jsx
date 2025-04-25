@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import { useTranslations } from 'next-intl'
 
 function DeleteBtn({ id }) {
 
@@ -18,9 +19,11 @@ function DeleteBtn({ id }) {
         }
     }
 
+    const t = useTranslations('DeleteBtn');
+
   return (
     <a onClick={handleDelete} className='bg-red-500 text-white border py-2 px-3 rounded-md text-lg my-2'>
-        Delete
+        {t("delete")}
     </a>
   )
 }

@@ -1,11 +1,11 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import Navbar from '../../../components/Navbar'
+import Footer from '../../../components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import Container from '../components/Container'
+import Container from '../../../components/Container'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import DeleteBtn from './DeleteBtn'
@@ -69,12 +69,12 @@ function WelcomePage() {
                 <div className='container mx-auto shadow-xl my-10 p-10 rounded-xl'>
                     <div className='flex justify-between'>
                         <div>
-                            <h3 className='text-3xl'>Profile</h3>
-                            <p>Welcome, {session?.user?.name}</p>
-                            <p>Email: {session?.user?.email}</p>
+                            <h3 className='text-3xl'>{t("profile")}</h3>
+                            <p>{t("welcomeText")} {session?.user?.name}</p>
+                            <p>{t("email")} {session?.user?.email}</p>
                         </div>
                         <div>
-                            <Link href="/create" className='bg-green-500 text-white border py-2 px-3 rounded-md text-lg my-2'>Create Post</Link>
+                            <Link href="/create" className='bg-green-500 text-white border py-2 px-3 rounded-md text-lg my-2'>{t("createPostBtn")}</Link>
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@ function WelcomePage() {
                                         {val.content}
                                     </p>
                                     <div className='mt-5'>
-                                        <Link className='bg-gray-500 text-white border py-2 px-3 rounded-md text-lg my-2' href={`/edit/${val._id}`}>Edit</Link>
+                                        <Link className='bg-gray-500 text-white border py-2 px-3 rounded-md text-lg my-2' href={`/edit/${val._id}`}>{t("editPostBtn")}</Link>
                                         <DeleteBtn id={val._id} />
                                     </div>
                                 </div>

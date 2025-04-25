@@ -1,6 +1,7 @@
-import { connectMongoDB } from "../../../../../lib/mongodb.js";
-import Post from "../../../../../models/post.js";
+
 import { NextResponse } from "next/server";
+import { connectMongoDB } from "../../../../lib/mongodb.js";
+import Post from "../../../../models/post.js";
 
 export async function POST(req) {
     const { title, img, content, userEmail } = await req.json();
