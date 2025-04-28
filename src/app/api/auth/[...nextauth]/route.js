@@ -11,9 +11,13 @@ const authOptions = {
           credentials: {},
           async authorize(credentials, req) {
             
-            const { email, password } = credentials;
-
+            
             try {
+              const { email, password } = credentials;
+
+              if (!email || !password) {
+                throw new Error("Missing email or password");
+              }
 
                 await connectMongoDB();
                 const user = await User.findOne({ email });
@@ -28,20 +32,18 @@ const authOptions = {
                     return null;
                 }
 
-                return user;
+                return User;
 
             } catch(error) {
-                console.log("Error: ", error);
+              console.error("Authorization error:", error);
+              throw new Error("Authentication failed");
             }
             
           }
         })
       ],
       session: {
-        strategy: "jwt"
-        // maxAge: 30 * 24 * 60 * 60 // 30 days
-      },
-      jwt: {
+        strategy: "jwt",
         maxAge: 30 * 24 * 60 * 60 // 30 days
       },
       secret: process.env.NEXTAUTH_SECRET,

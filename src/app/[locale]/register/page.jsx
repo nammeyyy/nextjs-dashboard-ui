@@ -7,6 +7,7 @@ import Container from '../../../components/Container'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
+import { useTranslations } from "next-intl";
 
 function RegisterPage() {
 
@@ -16,6 +17,8 @@ function RegisterPage() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
+    const t = useTranslations("RegisterPage");
 
     const { data: session } = useSession();
     if (session) redirect("/welcome");
@@ -35,8 +38,8 @@ function RegisterPage() {
 
         try {
 
-            // const resUserExists = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/userExists`, {
-            const resUserExists = await fetch("http://localhost:3000/api/userExists", {
+            const resUserExists = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/userExists`, {
+            // const resUserExists = await fetch("http://localhost:3000/api/userExists", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -51,8 +54,8 @@ function RegisterPage() {
                 return;
             }
 
-            // const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/register`, {
-            const res = await fetch("http://localhost:3000/api/register", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/register`, {
+            // const res = await fetch("http://localhost:3000/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -82,7 +85,7 @@ function RegisterPage() {
             <div className='flex-grow'>
                 <div className='flex justify-center items-center'>
                     <div className='w-[400px] shadow-xl p-10 mt-5 rounded-xl'>
-                        <h3 className='text-3xl'>Register</h3>
+                        <h3 className='text-3xl'>{t("regTitle")}</h3>
                         <hr className='my-3' />
                         <form onSubmit={handleSubmit}>
 
@@ -98,14 +101,14 @@ function RegisterPage() {
                                 </div>
                             )}
 
-                            <input type="text" onChange={(e) => setName(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder='Enter your name' />
-                            <input type="email" onChange={(e) => setEmail(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder='Enter your email' />
-                            <input type="password" onChange={(e) => setPassword(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder='Enter your password' />
-                            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder='Confirm your password' />
-                            <button className='bg-green-500 text-white border py-2 px-3 rounded text-lg my-2' type='submit'>Sign Up</button>
+                            <input type="text" onChange={(e) => setName(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder={t("name")} />
+                            <input type="email" onChange={(e) => setEmail(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder={t("email")} />
+                            <input type="password" onChange={(e) => setPassword(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder={t("password")} />
+                            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} className='w-full bg-gray-200 border py-2 px-3 rounded text-lg my-2' placeholder={t("conPassword")} />
+                            <button className='bg-green-500 text-white border py-2 px-3 rounded text-lg my-2' type='submit'>{t("signUpBtn")}</button>
                             <hr className='my-3' />
                             <p>
-                                Already have an account? Go go <Link href="/login" className='text-blue-500 hover:underline'>Login</Link> Page
+                                {t("already")} <Link href="/login" className='text-blue-500 hover:underline'>{t("loginLink")}</Link> {t("loginPage")}
                             </p>
                         </form>
                     </div>

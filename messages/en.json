@@ -5,6 +5,17 @@
     "profile": "Profile",
     "logout": "Logout"
   },
+  "RegisterPage": {
+    "regTitle": "Register",
+    "name": "Enter your name",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "conPassword": "Confirm your password",
+    "signUpBtn": "Sign Up",
+    "already": "Already have an account? Go to ",
+    "loginLink": "Login",
+    "loginPage": "Page"
+  },
   "LoginPage": {
     "login": "Login",
     "email": "Enter your email",
