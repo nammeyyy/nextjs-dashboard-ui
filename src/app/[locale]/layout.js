@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 // import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { AuthProvider } from "./Providers";
+import { AuthProvider } from "../../components/Providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
 import { NextIntlClientProvider, useLocale } from "next-intl";
+import LocaleProviders from "@/components/LocaleProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,8 +23,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const locale = useLocale();
-  console.log("locale", locale);
+
 
   // if (!routing.locales.includes(locale)) {
   //   notFound();
@@ -32,12 +32,8 @@ export default function RootLayout({ children }) {
   // const messages = await getMessages({ locale }  );
 
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider>
-          <AuthProvider>{children}</AuthProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider>
+      <LocaleProviders>{children}</LocaleProviders>
+    </NextIntlClientProvider>
   );
 }
