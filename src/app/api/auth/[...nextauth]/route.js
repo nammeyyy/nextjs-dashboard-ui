@@ -10,8 +10,6 @@ const authOptions = {
           name: 'credentials',
           credentials: {},
           async authorize(credentials, req) {
-            
-            
             try {
               const { email, password } = credentials;
 
@@ -32,11 +30,11 @@ const authOptions = {
                     return null;
                 }
 
-                return User;
+                return user;
 
             } catch(error) {
               console.error("Authorization error:", error);
-              throw new Error("Authentication failed");
+              // throw new Error("Authentication failed");
             }
             
           }

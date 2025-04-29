@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
 // import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { AuthProvider } from "../../components/Providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import LocaleProviders from "@/components/LocaleProviders";
 
 const geistSans = Geist({

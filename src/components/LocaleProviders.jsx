@@ -1,5 +1,4 @@
 "use client";
-
 import { NextIntlClientProvider, useLocale } from "next-intl";
 import { AuthProvider } from "./Providers";
 
