@@ -1,6 +1,6 @@
 "use client";
 import { NextIntlClientProvider, useLocale } from "next-intl";
-import { AuthProvider } from "./Providers";
+import { AuthProvider } from "../components/Providers";
 
 function LocaleProviders({ children }) {
     const locale = useLocale();

@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import LocaleProviders from "@/components/LocaleProviders";
+import LocaleProviders from "@/app/LocaleProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
